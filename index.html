@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <title>Loteria</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="estilos.css" media="all" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+            integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+            crossorigin="anonymous">
+
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+
+        <br>
+        <div class="container jumbotron">
+            <div class="row" id="main">
+
+                <div class="col-sm-3" id="div1">
+                    <template v-for="carta in plantillapc">
+                        <ul>
+                            <div class="card-container">
+                                <div class="card">
+                                    {{ carta.nombre }} 
+                                    {{ carta.estado }}
+                                </div>
+                            </div>
+                        </ul>
+                    </template>
+                </div>
+
+                <div class="col-sm-6">
+
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <button class="btn btn-info"
+                                @click="generarPlantillas" id="btnGenerar">Generar
+                                Plantillas</button>
+                        </div>
+                        <div class="col">
+                            <button disabled class="btn btn-success"
+                                @click="iniciarPartida" id="btnIniciar">Iniciar
+                                partida</button>
+                        </div>
+                        <div class="col">
+                            <button disabled class="btn btn-default" 
+                                @click="siguenteCarta" id="btnSiguente">Siguente 
+                                carta</button>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row container-fluid">
+                        <template v-for="carta in partida">
+                            <ul>
+                                <div class="card-container">
+                                    <div class="card">
+                                        {{ carta }}
+                                    </div>
+                                </div>
+                            </ul>
+                        </template>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-3" id="div1">
+                    <template v-for="carta in plantillaUser">
+                        <ul>
+                            <div class="card-container">
+                                <div class="card">
+                                    {{ carta.nombre }} 
+                                    {{ carta.estado }}
+                                </div>
+                            </div>
+                        </ul>
+                    </template>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <script src="vue.js"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
