@@ -32,7 +32,7 @@
                         <ul>
                             <div class="card-container">
                                 <div class="card">
-                                    {{ carta.nombre }} 
+                                    {{ carta.nombre }}
                                     {{ carta.estado }}
                                 </div>
                             </div>
@@ -54,23 +54,20 @@
                                 partida</button>
                         </div>
                         <div class="col">
-                            <button disabled class="btn btn-default" 
-                                @click="siguenteCarta" id="btnSiguente">Siguente 
+                            <button disabled class="btn btn-default"
+                                @click="siguenteCarta" id="btnSiguente">Siguente
                                 carta</button>
                         </div>
                     </div>
 
                     <br>
-                    <div class="row container-fluid">
-                        <template v-for="carta in partida">
-                            <ul>
-                                <div class="card-container">
-                                    <div class="card">
-                                        {{ carta }}
-                                    </div>
-                                </div>
-                            </ul>
-                        </template>
+                    <div class="row container">
+                        <div class="card-container1">
+                            <div class="card1">
+                                <img >
+                                {{ turno.nombre }}
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -80,7 +77,7 @@
                         <ul>
                             <div class="card-container">
                                 <div class="card">
-                                    {{ carta.nombre }} 
+                                    {{ carta.nombre }}
                                     {{ carta.estado }}
                                 </div>
                             </div>

@@ -21,10 +21,35 @@
 }
 
 img { 
-    border-radius: 15px;
-    width: 108px;
-    height: 168px;
+    border-radius: 10px;
+    
+    height: 300px;
+    width: 300px; 
 
     position: relative;
     transform-style: preserve-3d;
  }
+
+
+ .card-container1
+{
+    font-family: sans serif;
+    font-size: 20px;
+    font-weight: bold;
+    background: green;
+    height: 300px;
+    width: 500px; 
+
+    border-radius: 15px;
+    perspective: 1900px;
+}
+
+.card1
+{
+    height: 100%;
+    border-radius: 10px;
+    width: 100%;    
+
+    position: relative;
+    transform-style: preserve-3d;
+}

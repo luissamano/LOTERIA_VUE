@@ -382,7 +382,7 @@ var vue = new Vue({
             */
 
             this.contador++;
-            this.turno = this.partida[contador];
+            this.turno = this.partida[this.contador];
         }
     }
 })
