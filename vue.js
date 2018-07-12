@@ -1,6 +1,7 @@
 var vue = new Vue({
     el: '#main',
     data: {
+        imgCarta: "",
         contador: 0,
         partida: [],
         turno: [],
@@ -282,18 +283,17 @@ var vue = new Vue({
     methods: {
         generarPlantillas: function () {
 
+
+            this.plantillapc.length = 0;
+            this.plantillaUser.length = 0;
             var usados = new Array();
 
             document.getElementById("btnIniciar").disabled = false;
 
             var max = 12;
             var repe = false;
-            this.plantillapc.length = 0;
-            this.plantillaUser.length = 0;
 
             var numero = aleatorio(1, 54);
-            console.log(numero);
-
 
             for (var index = 0; index < 12; index++) {
                 var numaleatorio1 = aleatorio(1, 54);
@@ -305,8 +305,6 @@ var vue = new Vue({
                 this.plantillaUser.push(this.cartas[numaleatorio2]);
 
             }
-
-
 
 
             function repetido(num) {
@@ -364,25 +362,41 @@ var vue = new Vue({
             
         },
         siguenteCarta: function () {
-            /*
-            this.partida.forEach(element1 => {
-                this.plantillapc.forEach(element2 => {
-                    if(element1.id == element2.id) {
-                        element1.estado = true;
-                        element2.estado = true;
-                    }
-                });  
-                this.plantillaUser.forEach(element3 => {
-                    if(element1.id == element3.id) {
-                        element1.estado = true;
-                        element3.estado = true;
-                    }
-                });              
-            });
-            */
-
+            
             this.contador++;
             this.turno = this.partida[this.contador];
+
+            var str = "resources/"+this.turno.nombre.toLowerCase()+".jpg";
+
+            this.imgCarta = espacios(str);
+            
+            this.plantillapc.forEach(element2 => {
+                if(this.turno.id == element2.id) {
+                    element2.estado = true;
+                }
+            }); 
+
+            this.plantillaUser.forEach(element3 => {
+                if(this.turno.id == element3.id) {
+                    element3.estado = true;
+                }
+            });  
+
+
+            function espacios(params) {
+                var cadena = '';
+                var arrayString = str.split(' ');
+                for (var i = 0; i < arrayString.length; i++) {
+                    if (arrayString[i] != "") {
+                        cadena += arrayString[i];
+                    }
+                }
+                return cadena;
+            }
+
+            console.log(this.imgCarta);
+            
+
         }
     }
 })

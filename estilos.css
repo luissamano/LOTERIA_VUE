@@ -36,6 +36,9 @@ img {
     font-family: sans serif;
     font-size: 20px;
     font-weight: bold;
+
+    align-items: center;
+
     background: green;
     height: 300px;
     width: 500px; 
@@ -50,6 +53,5 @@ img {
     border-radius: 10px;
     width: 100%;    
 
-    position: relative;
     transform-style: preserve-3d;
 }
