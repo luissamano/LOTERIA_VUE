@@ -3,6 +3,8 @@ var vue = new Vue({
     data: {
         imgCarta: "",
         contador: 0,
+        pc: 0,
+        user: 0,
         partida: [],
         turno: [],
         plantillapc: [],
@@ -210,7 +212,7 @@ var vue = new Vue({
             },
             {
                 id: 41,
-                nombre: 'El rosa',
+                nombre: 'La rosa',
                 estado: false
             },
             {
@@ -240,12 +242,12 @@ var vue = new Vue({
             },
             {
                 id: 47,
-                nombre: 'El corona',
+                nombre: 'La corona',
                 estado: false
             },
             {
                 id: 48,
-                nombre: 'El chalupa',
+                nombre: 'La chalupa',
                 estado: false
             },
             {
@@ -260,12 +262,12 @@ var vue = new Vue({
             },
             {
                 id: 51,
-                nombre: 'El palma',
+                nombre: 'La palma',
                 estado: false
             },
             {
                 id: 52,
-                nombre: 'El maceta',
+                nombre: 'La maceta',
                 estado: false
             },
             {
@@ -275,7 +277,7 @@ var vue = new Vue({
             },
             {
                 id: 54,
-                nombre: 'El rana',
+                nombre: 'La rana',
                 estado: false
             }
         ]
@@ -366,22 +368,24 @@ var vue = new Vue({
             this.contador++;
             this.turno = this.partida[this.contador];
 
-            var str = "resources/"+this.turno.nombre.toLowerCase()+".jpg";
+            var str = "./resources/"+this.turno.nombre.toLowerCase()+".jpg";
 
             this.imgCarta = espacios(str);
             
             this.plantillapc.forEach(element2 => {
                 if(this.turno.id == element2.id) {
                     element2.estado = true;
-                }
+                    this.pc++;
+                }              
             }); 
 
             this.plantillaUser.forEach(element3 => {
                 if(this.turno.id == element3.id) {
                     element3.estado = true;
+                    this.user++;
                 }
-            });  
-
+            }); 
+            
 
             function espacios(params) {
                 var cadena = '';
@@ -393,10 +397,15 @@ var vue = new Vue({
                 }
                 return cadena;
             }
-
-            console.log(this.imgCarta);
             
-
+            if (this.pc === 12) {
+                alert("Gana la PC");
+                document.getElementById("btnSiguente").disabled = true;
+            }
+            if (this.user === 12) {
+                alert("Gana el Usuario");
+                document.getElementById("btnSiguente").disabled = true;
+            }
         }
     }
 })

@@ -36,8 +36,8 @@ img {
     font-family: sans serif;
     font-size: 20px;
     font-weight: bold;
-
     align-items: center;
+    background-color: aliceblue;
 
     background: green;
     height: 300px;
@@ -54,4 +54,21 @@ img {
     width: 100%;    
 
     transform-style: preserve-3d;
+}
+
+.completada {
+    width: 20px;
+    height: 20px;
+    float: right;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    margin-top: 6px;
+    color: #aaa;
+}
+
+.tachar {
+    color: #bbb;
+    background-color: #f9f9f9;
+    text-decoration: line-through;
+    border-color: #f9f9f9;
 }
